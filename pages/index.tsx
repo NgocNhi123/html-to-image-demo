@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 import { useState } from "react";
+import Image, { ImageLoader } from "next/image";
 
 export default function Home() {
   const [imageSrc, setImageSrc] = useState<string>("#");
@@ -69,7 +70,13 @@ export default function Home() {
         {imageSrc === "#" ? (
           <div>...loading</div>
         ) : (
-          <img src={imageSrc} alt="response" className={styles.img} />
+          <Image
+            src={imageSrc}
+            width={300}
+            height={300}
+            alt="response"
+            className={styles.img}
+          />
         )}
       </div>
     </div>
